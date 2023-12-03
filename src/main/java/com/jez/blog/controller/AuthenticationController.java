@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jez.blog.dto.RegistrationDTO;
+import com.jez.blog.dto.auth.LoginDTO;
+import com.jez.blog.dto.auth.LoginResponseDTO;
+import com.jez.blog.dto.auth.RegistrationDTO;
 import com.jez.blog.service.AuthenticationService;
 
 import jakarta.validation.Valid;
@@ -28,8 +30,7 @@ public class AuthenticationController {
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<?> register(@RequestBody RegistrationDTO registrationDTO, BindingResult bindingResult)
-	{
+	public ResponseEntity<?> register(@RequestBody @Valid RegistrationDTO registrationDTO, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
             bindingResult.getAllErrors().forEach(error ->
@@ -42,5 +43,10 @@ public class AuthenticationController {
 		}
 		
 		return new ResponseEntity<>(authenticationService.register(registrationDTO), HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/login")
+	public ResponseEntity<LoginResponseDTO> loginUser(@RequestBody @Valid LoginDTO loginDTO) {
+		return new ResponseEntity<>(authenticationService.login(loginDTO), HttpStatus.OK);
 	}
 }

@@ -1,4 +1,4 @@
-package com.jez.blog.dto;
+package com.jez.blog.dto.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

@@ -1,4 +1,4 @@
-package com.jez.blog.dto;
+package com.jez.blog.dto.auth;
 
 import java.util.Set;
 
@@ -6,7 +6,6 @@ import com.jez.blog.model.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
