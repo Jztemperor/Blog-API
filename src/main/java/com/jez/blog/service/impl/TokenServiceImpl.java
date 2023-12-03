@@ -19,7 +19,6 @@ public class TokenServiceImpl implements TokenService {
 	private final JwtEncoder jwtEncoder;
 	
 	public TokenServiceImpl(JwtEncoder jwtEncoder) {
-		super();
 		this.jwtEncoder = jwtEncoder;
 	}
 

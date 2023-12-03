@@ -24,4 +24,9 @@ public class Role implements GrantedAuthority {
 	private Long roleId;
 	
 	private String authority;
+	
+	// Constructor for DB seeding
+	public Role(String authority) {
+		this.authority = authority;
+	}
 }

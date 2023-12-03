@@ -66,4 +66,12 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+
+	// Constructor for DB seeding
+	public User(String username, String email, String password, Set<Role> authorities) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.authorities = authorities;
+	}
 }
