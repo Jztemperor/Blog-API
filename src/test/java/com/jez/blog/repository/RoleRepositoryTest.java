@@ -28,7 +28,7 @@ public class RoleRepositoryTest {
 		Assertions.assertThat(savedRole).isNotNull();
 		Assertions.assertThat(savedRole)
 			.usingRecursiveComparison()
-			.ignoringFields("userId")
+			.ignoringFields("roleId")
 			.isEqualTo(role);
 }
 	
@@ -44,7 +44,7 @@ public class RoleRepositoryTest {
 		Role foundRole = foundRoleOptional.get();
 		Assertions.assertThat(foundRole)
 		.usingRecursiveComparison()
-		.ignoringFields("userId")
+		.ignoringFields("roleId")
 		.isEqualTo(role);
 }
 }
